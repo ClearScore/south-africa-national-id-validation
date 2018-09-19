@@ -1,6 +1,6 @@
 # 🇿🇦 South Africa National ID Validation
 
-[![Build Status](https://travis-ci.org/ClearScore/south-africa-national-id-validation.svg?branch=master)](https://travis-ci.org/ClearScore/south-africa-national-id-validation) [![Coverage Status](https://coveralls.io/repos/github/ClearScore/south-africa-national-id-validation/badge.svg?branch=master)](https://coveralls.io/github/ClearScore/south-africa-national-id-validation?branch=master)
+[![npm](https://img.shields.io/npm/v/south-africa-national-id-validation.svg)](https://www.npmjs.com/package/south-africa-national-id-validation) [![Build Status](https://travis-ci.org/ClearScore/south-africa-national-id-validation.svg?branch=master)](https://travis-ci.org/ClearScore/south-africa-national-id-validation) [![Coverage Status](https://coveralls.io/repos/github/ClearScore/south-africa-national-id-validation/badge.svg?branch=master)](https://coveralls.io/github/ClearScore/south-africa-national-id-validation?branch=master) [![GitHub](https://img.shields.io/github/license/clearscore/south-africa-national-id-validation.svg)](https://github.com/ClearScore/south-africa-national-id-validation/blob/master/LICENSE)
 
 Checks the National ID input:
 * is valid (regex)
