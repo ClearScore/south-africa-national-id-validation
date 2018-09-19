@@ -1,5 +1,7 @@
 # 🇿🇦 South Africa National ID Validation
 
+[![Build Status](https://travis-ci.org/ClearScore/south-africa-national-id-validation.svg?branch=master)](https://travis-ci.org/ClearScore/south-africa-national-id-validation) [![Coverage Status](https://coveralls.io/repos/github/ClearScore/south-africa-national-id-validation/badge.svg?branch=master)](https://coveralls.io/github/ClearScore/south-africa-national-id-validation?branch=master)
+
 Checks the National ID input:
 * is valid (regex)
     * correct format
