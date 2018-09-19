@@ -1,0 +1,32 @@
+{
+  "name": "south-africa-national-id-validation",
+  "version": "1.0.0",
+  "description": "Checks the South Africa National ID input is valid and allows you to return specific error messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClearScore/south-africa-national-id-validation.git"
+  },
+  "keywords": [
+    "south",
+    "africa",
+    "national",
+    "id",
+    "input",
+    "validation",
+    "error",
+    "clearscore",
+    "clear",
+    "score",
+    "za"
+  ],
+  "author": "Callum Silcock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ClearScore/south-africa-national-id-validation/issues"
+  },
+  "homepage": "https://github.com/ClearScore/south-africa-national-id-validation#readme"
+}
