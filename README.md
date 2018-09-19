@@ -27,10 +27,10 @@ nationalIdNumber({
 })
 ```
 
-Check out the tests for more info
+Check out [the tests](index.test.js) for specific use case examples
 
 ---
 
-Based of the [westercape docs](https://www.westerncape.gov.za/general-publication/decoding-your-south-african-id-number-0)
+Based off the [westercape docs](https://www.westerncape.gov.za/general-publication/decoding-your-south-african-id-number-0)
 
 Inspired by [valid-south-african-id](https://github.com/tiaanduplessis/valid-south-african-id)
