@@ -4,7 +4,7 @@
   "description": "Checks the South Africa National ID input is valid and allows you to return specific error messages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,17 @@
     "score",
     "za"
   ],
-  "author": "Callum Silcock",
+  "author": "Callum Silcock <github@csi.lk> (http://www.clearscore.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ClearScore/south-africa-national-id-validation/issues"
   },
-  "homepage": "https://github.com/ClearScore/south-africa-national-id-validation#readme"
+  "homepage": "https://github.com/ClearScore/south-africa-national-id-validation#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0"
+  }
 }
