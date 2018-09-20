@@ -1,6 +1,7 @@
 # csilk Gitignore default #
 ###########################
 
+index.min.js
 node_modules
 npm-debug.log*
 dist
