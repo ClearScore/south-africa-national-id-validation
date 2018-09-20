@@ -1,6 +1,6 @@
 {
   "name": "south-africa-national-id-validation",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Checks the South Africa National ID input is valid and allows you to return specific error messages",
   "main": "index.min.js",
   "scripts": {
