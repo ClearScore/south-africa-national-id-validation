@@ -15,6 +15,7 @@ jobs:
     script:
     - npm run build
     deploy:
+      skip_cleanup: true
       provider: npm
       email: github@csi.lk
       api_key:
