@@ -10,6 +10,8 @@ script:
 - npm test
 after_script:
 - npm run coverage
+before_deploy:
+- npm install
 deploy:
   provider: npm
   email: github@csi.lk

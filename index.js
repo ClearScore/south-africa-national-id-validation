@@ -1,4 +1,3 @@
-
 /*
  * ZA National Id Validation
  * Based of: https://www.westerncape.gov.za/general-publication/decoding-your-south-african-id-number-0
