@@ -2,8 +2,10 @@
   "name": "south-africa-national-id-validation",
   "version": "1.0.0",
   "description": "Checks the South Africa National ID input is valid and allows you to return specific error messages",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "prepare": "npm run build",
+    "build": "cross-env BABEL_ENV=production babel index.js --out-dir dist",
     "test": "jest",
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
@@ -31,11 +33,14 @@
   },
   "homepage": "https://github.com/ClearScore/south-africa-national-id-validation#readme",
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "babel-preset-minify": "^0.4.3",
     "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
     "jest": "^23.6.0"
   }
 }
