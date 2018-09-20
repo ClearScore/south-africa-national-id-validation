@@ -5,18 +5,18 @@ sudo: false
 cache:
   directories:
   - node_modules
-before_install: 
-script:
-- npm test
-after_script:
-- npm run coverage
-before_deploy:
-- npm install
-deploy:
-  provider: npm
-  email: github@csi.lk
-  api_key:
-    secure: f2SP0HTBaC6tdYfGqLh52swVKG2z6xJn9wq30IFXKhuYmnwfYBvnPr8hs0U1XHTx2jqVnWLdBSTJsZBjAHGwwsTon0USy9Pofewj3TMMcYUdfLURWevqExWdnXCkPxdbRhMDWfYsOOUAwNQO30LnDOYr2isSk1AGtRRK4bIhbRaTJuIRGsNlI63zmkC5SH2wdKE4pVTlMiFfubO1qGzMZp3FKMjt0C55gKOUYvWOMfG2ZI1oRo76eqr3X6WwJCUHxnHWLi3NcTkpWTHanPUb2uU5xWa4JHlC98qj5uveFjki4gE21rfnIUbqo1HfBofMwM3srQ17fcGa6i8/Mm3URktXfMgvpNDF25mIRMWLxOx+OWaL2eeWuKVCKDvJkuoK4XzN+q0h5Oy6FTquu7Qx9vxuHmZzyOJ7uKaGjOXzQHW0KzE8IATmRrj3rGoxkzd/Osr0ZRMxAsQH/czueTgvyVf5UAFGwmHx3YGubGFDm+Ds3UjtyermCFxSY4tUe3ngNoVfDIdLyVLXMIMxaiX/X6DlrB/Fsr7XjaG5q5Ad8YgSowRPszvI7DUCSjIiUqiItbT9abXsw8iZLlvz7oM2nTVBmNi53GXTKTTv/FQgEXawlh+42xcEFJWw7Tq+x40xZ+BMcnq93R6cayGd6dG0pCzsGQEZg8RV6f20QS2rCEs=
-  on:
-    repo: ClearScore/south-africa-national-id-validation
-    tags: true
+jobs:
+  include:
+  - stage: test
+    script:
+    - npm test
+    - npm run coverage
+  - stage: deploy
+    deploy:
+      provider: npm
+      email: github@csi.lk
+      api_key:
+        secure: f2SP0HTBaC6tdYfGqLh52swVKG2z6xJn9wq30IFXKhuYmnwfYBvnPr8hs0U1XHTx2jqVnWLdBSTJsZBjAHGwwsTon0USy9Pofewj3TMMcYUdfLURWevqExWdnXCkPxdbRhMDWfYsOOUAwNQO30LnDOYr2isSk1AGtRRK4bIhbRaTJuIRGsNlI63zmkC5SH2wdKE4pVTlMiFfubO1qGzMZp3FKMjt0C55gKOUYvWOMfG2ZI1oRo76eqr3X6WwJCUHxnHWLi3NcTkpWTHanPUb2uU5xWa4JHlC98qj5uveFjki4gE21rfnIUbqo1HfBofMwM3srQ17fcGa6i8/Mm3URktXfMgvpNDF25mIRMWLxOx+OWaL2eeWuKVCKDvJkuoK4XzN+q0h5Oy6FTquu7Qx9vxuHmZzyOJ7uKaGjOXzQHW0KzE8IATmRrj3rGoxkzd/Osr0ZRMxAsQH/czueTgvyVf5UAFGwmHx3YGubGFDm+Ds3UjtyermCFxSY4tUe3ngNoVfDIdLyVLXMIMxaiX/X6DlrB/Fsr7XjaG5q5Ad8YgSowRPszvI7DUCSjIiUqiItbT9abXsw8iZLlvz7oM2nTVBmNi53GXTKTTv/FQgEXawlh+42xcEFJWw7Tq+x40xZ+BMcnq93R6cayGd6dG0pCzsGQEZg8RV6f20QS2rCEs=
+      on:
+        repo: ClearScore/south-africa-national-id-validation
+        tags: true
