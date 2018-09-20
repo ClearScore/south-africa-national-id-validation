@@ -1,6 +1,6 @@
 # 🇿🇦 South Africa National ID Validation
 
-[![npm](https://img.shields.io/npm/v/south-africa-national-id-validation.svg)](https://www.npmjs.com/package/south-africa-national-id-validation) [![Build Status](https://travis-ci.org/ClearScore/south-africa-national-id-validation.svg?branch=master)](https://travis-ci.org/ClearScore/south-africa-national-id-validation) [![Coverage Status](https://coveralls.io/repos/github/ClearScore/south-africa-national-id-validation/badge.svg?branch=master)](https://coveralls.io/github/ClearScore/south-africa-national-id-validation?branch=master) [![GitHub](https://img.shields.io/github/license/clearscore/south-africa-national-id-validation.svg)](https://github.com/ClearScore/south-africa-national-id-validation/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/south-africa-national-id-validation.svg)](https://www.npmjs.com/package/south-africa-national-id-validation) [![npm](https://img.shields.io/npm/dt/south-africa-national-id-validation.svg)](https://www.npmjs.com/package/south-africa-national-id-validation) [![Build Status](https://travis-ci.org/ClearScore/south-africa-national-id-validation.svg?branch=master)](https://travis-ci.org/ClearScore/south-africa-national-id-validation) [![Coverage Status](https://coveralls.io/repos/github/ClearScore/south-africa-national-id-validation/badge.svg?branch=master)](https://coveralls.io/github/ClearScore/south-africa-national-id-validation?branch=master) [![GitHub](https://img.shields.io/github/license/clearscore/south-africa-national-id-validation.svg)](https://github.com/ClearScore/south-africa-national-id-validation/blob/master/LICENSE)
 
 Checks the National ID input:
 * is valid (regex)
@@ -14,10 +14,20 @@ Checks the National ID input:
 
 ## Usage
 
-```js
-import nationalIdNumber from '.'
+Grab from NPM / Yarn
 
-nationalIdNumber({
+```bash
+npm i south-africa-national-id-validation
+```
+
+```bash
+yarn add south-africa-national-id-validation
+```
+
+```js
+import verifyNationalIdNumber from 'south-africa-national-id-validation'
+
+verifyNationalIdNumber({
     number //(string) the number to check
     minAge //(number) minimum allowed age
     errorMessages: {
