@@ -12,6 +12,8 @@ jobs:
     - npm test
     - npm run coverage
   - stage: deploy
+    script:
+    - npm run build
     deploy:
       provider: npm
       email: github@csi.lk
