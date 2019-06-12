@@ -5,13 +5,17 @@ describe('nationalIdNumber', () => {
     // -----------------------------------------
     it.each`
         number                 | valid    | type
-        ${'9401215029086'}     | ${true}  | ${'valid'}
-        ${'9401215029087'}     | ${false} | ${'invalid checksum'}
-        ${'8813215029086'}     | ${false} | ${'invalid date'}
-        ${'1212125029837'}     | ${false} | ${'too young'}
-        ${'9001015003382'}     | ${false} | ${'invalid citizenship'}
-        ${'80022015324343434'} | ${false} | ${'too many digits'}
-        ${'8002201532'}        | ${false} | ${'too few digits'}
+        ${'9202295029188'}     | ${true}  | ${'valid'}
+        ${'7311190013080'}     | ${true}  | ${'valid'}
+        ${'6512230302083'}     | ${true}  | ${'valid'}
+        ${'7311190T13080'}     | ${false} | ${'invalid format'}
+        ${'9202295029187'}     | ${false} | ${'invalid checksum'}
+        ${'8813210302087'}     | ${false} | ${'invalid date'}
+        ${'9302295029087'}     | ${false} | ${'invalid date'}
+        ${'1806110013082'}     | ${false} | ${'too young'}        
+        ${'6512230302281'}     | ${false} | ${'invalid citizenship'}
+        ${'73111900130805'}    | ${false} | ${'too many digits'}
+        ${'651223030206'}      | ${false} | ${'too few digits'}
         ${''}                  | ${false} | ${'blank'}
     `('checks $type returns $valid', ({ number, valid }) => {
         expect(nationalIdNumber({ number })).toEqual(valid);
@@ -19,11 +23,15 @@ describe('nationalIdNumber', () => {
     // Test error messages work
     // -----------------------------------------
     it.each`
-        number             | message
-        ${'80432205422'}   | ${'format'}
-        ${'9402325029086'} | ${'date'}
-        ${'1702015029086'} | ${'age'}
-        ${'9401215029087'} | ${'checksum'}
+        number              | message
+        ${'7311190T13080'}  | ${'format'}
+        ${'6512230302281'}  | ${'format'}
+        ${'9202295029187'}  | ${'format'}
+        ${'9302295029087'}  | ${'date'}
+        ${'1806110013082'}  | ${'age'}
+        ${'73111900130805'} | ${'long'}
+        ${'651223030206'}   | ${'short'}
+
     `('returns specific error message for $message', ({ number, message }) => {
         const errorMessages = {};
         errorMessages[message] = message;
