@@ -53,15 +53,32 @@ export const isValidDate = dateString => {
     return false;
 };
 
+const NATIONAL_ID_VALID_LENGTH = 13;
+
 export default function nationalIdNumber({
     number,
     minAge = 18,
-    errorMessages = { format: false, date: false, age: false, checksum: false }
+    errorMessages = {
+        format: false,
+        date: false,
+        age: false,
+        checksum: false,
+        short: false,
+        long: false
+    }
 }) {
     // Check it's a string
     // -----------------------------------------
     if (typeof number !== 'string') {
         throw new Error('Input should be string');
+    }
+
+    if (number.length < NATIONAL_ID_VALID_LENGTH) {
+        return errorMessages.short;
+    }
+
+    if (number.length > NATIONAL_ID_VALID_LENGTH) {
+        return errorMessages.long;
     }
     // Basic format check first
     // -----------------------------------------
@@ -90,10 +107,10 @@ export default function nationalIdNumber({
 
     // Lastly the CheckSum
     // -----------------------------------------
-    if (
-        mod10CheckDigit({ number }) !==
-        Number.parseInt(number.substring(12, 13), 10)
-    ) {
+    const numberToValidate = number.substring(0, 12);
+    const checksumDigit = Number.parseInt(number.substring(12, 13), 10);
+
+    if (mod10CheckDigit({ number: numberToValidate }) !== checksumDigit) {
         return errorMessages.checksum;
     }
 

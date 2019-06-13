@@ -20,6 +20,7 @@ describe('nationalIdNumber', () => {
     `('checks $type returns $valid', ({ number, valid }) => {
         expect(nationalIdNumber({ number })).toEqual(valid);
     });
+
     // Test error messages work
     // -----------------------------------------
     it.each`
