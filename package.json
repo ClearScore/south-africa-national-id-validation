@@ -44,6 +44,7 @@
     "babel-preset-minify": "^0.4.3",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "prettier": "^1.18.2"
   }
 }
