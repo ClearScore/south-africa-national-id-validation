@@ -1,22 +1,22 @@
-import nationalIdNumber, { mod10CheckDigit } from '.';
+import nationalIdNumber, { mod10CheckDigit, isValidDate } from '.';
 
 describe('nationalIdNumber', () => {
     // Test each number scenario
     // -----------------------------------------
     it.each`
-        number                 | valid    | type
-        ${'9202295029188'}     | ${true}  | ${'valid'}
-        ${'7311190013080'}     | ${true}  | ${'valid'}
-        ${'6512230302083'}     | ${true}  | ${'valid'}
-        ${'7311190T13080'}     | ${false} | ${'invalid format'}
-        ${'9202295029187'}     | ${false} | ${'invalid checksum'}
-        ${'8813210302087'}     | ${false} | ${'invalid date'}
-        ${'9302295029087'}     | ${false} | ${'invalid date'}
-        ${'1806110013082'}     | ${false} | ${'too young'}        
-        ${'6512230302281'}     | ${false} | ${'invalid citizenship'}
-        ${'73111900130805'}    | ${false} | ${'too many digits'}
-        ${'651223030206'}      | ${false} | ${'too few digits'}
-        ${''}                  | ${false} | ${'blank'}
+        number              | valid    | type
+        ${'9202295029188'}  | ${true}  | ${'valid'}
+        ${'7311190013080'}  | ${true}  | ${'valid'}
+        ${'6512230302083'}  | ${true}  | ${'valid'}
+        ${'7311190T13080'}  | ${false} | ${'invalid format'}
+        ${'9202295029187'}  | ${false} | ${'invalid checksum'}
+        ${'8813210302087'}  | ${false} | ${'invalid date'}
+        ${'9302295029087'}  | ${false} | ${'invalid date'}
+        ${'1806110013082'}  | ${false} | ${'too young'}
+        ${'6512230302281'}  | ${false} | ${'invalid citizenship'}
+        ${'73111900130805'} | ${false} | ${'too many digits'}
+        ${'651223030206'}   | ${false} | ${'too few digits'}
+        ${''}               | ${false} | ${'blank'}
     `('checks $type returns $valid', ({ number, valid }) => {
         expect(nationalIdNumber({ number })).toEqual(valid);
     });
@@ -26,12 +26,11 @@ describe('nationalIdNumber', () => {
         number              | message
         ${'7311190T13080'}  | ${'format'}
         ${'6512230302281'}  | ${'format'}
-        ${'9202295029187'}  | ${'format'}
+        ${'9202295029187'}  | ${'checksum'}
         ${'9302295029087'}  | ${'date'}
         ${'1806110013082'}  | ${'age'}
         ${'73111900130805'} | ${'long'}
         ${'651223030206'}   | ${'short'}
-
     `('returns specific error message for $message', ({ number, message }) => {
         const errorMessages = {};
         errorMessages[message] = message;
@@ -45,6 +44,20 @@ describe('nationalIdNumber', () => {
         } catch (e) {
             expect(e.message).toBe('Input should be string');
         }
+    });
+});
+
+describe('isValidDate', () => {
+    it.each`
+        date            | output
+        ${'2020/02/29'} | ${true}
+        ${'2020/02/30'} | ${false}
+        ${'1993/02/29'} | ${false}
+        ${'1988/13/21'} | ${false}
+        ${'2000/01/20'} | ${true}
+        ${'2000/01/32'} | ${false}
+    `('returns correct value $output for $date', ({ date, output }) => {
+        expect(isValidDate(date)).toBe(output);
     });
 });
 

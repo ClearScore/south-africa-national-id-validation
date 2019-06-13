@@ -36,6 +36,23 @@ export const mod10CheckDigit = ({ number }) => {
     return (doubledSum * 9) % 10;
 };
 
+// Based on date-fns answer: https://github.com/date-fns/date-fns/issues/800#issuecomment-403581282
+export const isValidDate = dateString => {
+    const dateObject = new Date(dateString);
+    let [year, month, day] = dateString.split('/');
+
+    // need to reduce month value by 1 to accommodate new Date formats the month
+    const formattedMonth = month - 1;
+    if (
+        dateObject.getFullYear() == year &&
+        dateObject.getMonth() == formattedMonth &&
+        dateObject.getDate() == day
+    ) {
+        return true;
+    }
+    return false;
+};
+
 export default function nationalIdNumber({
     number,
     minAge = 18,
@@ -63,7 +80,7 @@ export default function nationalIdNumber({
     const month = number.substring(2, 4);
     const day = number.substring(4, 6);
     // Check if valid date
-    if (Number.isNaN(Date.parse(`${year}/${month}/${day}`))) {
+    if (!isValidDate(`${year}/${month}/${day}`)) {
         return errorMessages.date;
     }
     // Check if user in age rage

@@ -46,3 +46,6 @@ Check out [the tests](index.test.js) for specific use case examples
 Based off the [westercape docs](https://www.westerncape.gov.za/general-publication/decoding-your-south-african-id-number-0)
 
 Inspired by [valid-south-african-id](https://github.com/tiaanduplessis/valid-south-african-id)
+
+### TODO
+-  Consider using [date-fns/toDate](https://date-fns.org/v2.0.0-alpha.33/docs/toDate) helper for date validation once 2.0 is released
