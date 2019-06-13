@@ -29,7 +29,9 @@ export const mod10CheckDigit = ({ number }) => {
 
             return val;
         })
-        .reduce((acc, curr) => Number.parseInt(acc, 10) + Number.parseInt(curr, 10));
+        .reduce(
+            (acc, curr) => Number.parseInt(acc, 10) + Number.parseInt(curr, 10)
+        );
 
     return (doubledSum * 9) % 10;
 };
@@ -37,7 +39,7 @@ export const mod10CheckDigit = ({ number }) => {
 export default function nationalIdNumber({
     number,
     minAge = 18,
-    errorMessages = { format: false, date: false, age: false, checksum: false },
+    errorMessages = { format: false, date: false, age: false, checksum: false }
 }) {
     // Check it's a string
     // -----------------------------------------
@@ -55,7 +57,8 @@ export default function nationalIdNumber({
     // -----------------------------------------
     const currentYear = new Date().getFullYear().toString();
     // Dob year is only YY, so we need to guess whether the user is born in 2000s or 1900s
-    const century = number.substring(0, 2) < currentYear.substring(2, 4) ? '20' : '19';
+    const century =
+        number.substring(0, 2) < currentYear.substring(2, 4) ? '20' : '19';
     const year = `${century}${number.substring(0, 2)}`;
     const month = number.substring(2, 4);
     const day = number.substring(4, 6);
@@ -70,7 +73,10 @@ export default function nationalIdNumber({
 
     // Lastly the CheckSum
     // -----------------------------------------
-    if (mod10CheckDigit({ number }) !== Number.parseInt(number.substring(12, 13), 10)) {
+    if (
+        mod10CheckDigit({ number }) !==
+        Number.parseInt(number.substring(12, 13), 10)
+    ) {
         return errorMessages.checksum;
     }
 
