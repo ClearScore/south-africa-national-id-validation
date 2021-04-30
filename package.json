@@ -35,6 +35,9 @@
     "url": "https://github.com/ClearScore/south-africa-national-id-validation/issues"
   },
   "homepage": "https://github.com/ClearScore/south-africa-national-id-validation#readme",
+  "resolutions": {
+    "y18n": "^3.2.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
